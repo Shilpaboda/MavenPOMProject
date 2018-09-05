@@ -16,14 +16,33 @@ public class TestBase {
     //Create Open Browser function:
     public void openBrowser(String browser) {
         if (browser.equalsIgnoreCase("chrome")){
-            System.setProperty("webdriver.gecko.driver","/Users/shilpa/IdeaProjects/MavenPOMProject/resources/chromedriver");
+            System.setProperty("webdriver.chrome.driver","/Users/shilpa/IdeaProjects/MavenPOMProject/resources/chromedriver");
             driver = new ChromeDriver();
+            System.out.println("Opening the browser: "+browser);
         }else if(browser.equalsIgnoreCase("firefox")){
             System.setProperty("webdriver.gecko.driver","/Users/shilpa/IdeaProjects/MavenPOMProject/resources/geckodriver");
             driver = new FirefoxDriver();
+            System.out.println("Opening the browser: "+browser);
         }else if(browser.equalsIgnoreCase("IE")){
             driver = new InternetExplorerDriver();
+            System.out.println("Opening the browser: "+browser);
         }
     }
+
+    //Create CloseBrowser:
+    public void closeBrowser(){
+        driver.quit();
+        System.out.println("Test case execution completed closing the browser");
+    }
+
+    //Navigate url: https://www.harrods.com/en-gb
+    public void navigateUrl(String url){
+
+        driver.get(url);
+    }
+
+
+
+
 
 }
